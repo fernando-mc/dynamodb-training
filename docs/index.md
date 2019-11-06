@@ -1,4 +1,6 @@
-# DynamoDB Essentials Training for the Serverless Framework
+---
+title: DynamoDB Essentials Training for the Serverless Framework
+---
 
 ## [Deploying a New DynamoDB Table](p1-deploying-new-dynamodb-table.md)
 ## [Important DynamoDB vs. SQL Considerations](p2-important-dynamodb-vs-sql-considerations.md)
