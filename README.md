@@ -1,1 +1,1 @@
-# dynamodb-training
+# DynamoDB Training
