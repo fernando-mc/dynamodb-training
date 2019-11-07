@@ -1,0 +1,27 @@
+service: simple-ddb-table
+app: simple-ddb-table-app
+org: workshop
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  hello:
+    handler: handler.hello
+
+resources:
+  Resources:
+    someTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: aSimpleTable
+        AttributeDefinitions:
+          - AttributeName: someKeyName
+            AttributeType: S
+        KeySchema:
+          - AttributeName: someKeyName
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
