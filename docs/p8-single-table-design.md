@@ -2,7 +2,7 @@
 
 This is where things get weird. In most previous examples we've used relatively simple DynamoDB tables with straightforward use cases and data models. But what happens when you try to model typical relational style access patterns against a more complex data set? Well, in that case you'll need to stop and think for a moment before you create your service.
 
-With a combination of secondary indexes and a technique called index overloading, DynamoDB can actually be used to model lots of different access patterns - as long as you take the time to think about those patterns when designing your table.
+With a combination of secondary indexes and a technique called [index overloading](https://docs.amazonaws.cn/en_us/amazondynamodb/latest/developerguide/bp-gsi-overloading.html), DynamoDB can actually be used to model lots of different access patterns - as long as you take the time to think about those patterns when designing your table.
 
 We'll be following the steps and demo used in [this post](https://www.trek10.com/blog/dynamodb-single-table-relational-modeling/) for working with DynamoDB. I've put the modified code we need in [the demos](https://github.com/fernando-mc/dynamodb-training/) for this section. For this demo, I'm using PAY_PER_REQUEST pricing so the demo may cost a few pennies to run.
 

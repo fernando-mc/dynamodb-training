@@ -26,7 +26,7 @@ There are also options that don't take provisioned capacity into account *at all
 
 If you have heavy utilization with DynamoDB you can pay upfront and commit to paying for a certain usage amount at a discounted rate. But you can only do this with provisioned capacity. As of right now you can do this with the Pay per Request, on-demand capacity model.
 
-#### Demo Time - Implementing Pay-per-request On-demand Capacity
+## Demo Time - Implementing Pay-per-request On-demand Capacity
 
 Let's see what the difference looks like between DynamoDB provisioned capacity and Pay-per-request capacity. You can see the code for this example [here](https://github.com/fernando-mc/dynamodb-training/) under examples-by-section and `p4-billing-model`.
 
