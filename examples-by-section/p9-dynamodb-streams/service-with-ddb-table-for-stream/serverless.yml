@@ -1,19 +1,10 @@
-service: simple-ddb-table
-app: simple-ddb-table-app
+service: service-with-ddb-table-for-stream
+app: ddb-stream-outputs
 org: workshop
 
 provider:
   name: aws
   runtime: nodejs10.x
-  environment:
-    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}-someTable
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
   hello:
@@ -24,7 +15,7 @@ resources:
     someTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+        TableName: aSimpleTable
         AttributeDefinitions:
           - AttributeName: someKeyName
             AttributeType: S
@@ -34,3 +25,8 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
+outputs:
+  tableStreamArn: 
+      Fn::GetAtt: [someTable, StreamArn]

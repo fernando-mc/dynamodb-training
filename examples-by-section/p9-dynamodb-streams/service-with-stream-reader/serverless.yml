@@ -1,0 +1,31 @@
+service: service-with-stream-reader
+app: ddb-stream-outputs
+org: workshop
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  environment:
+    STREAM_ARN: ${state:service-with-ddb-table-for-stream.tableStreamArn}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DescribeStream
+        - dynamodb:GetRecords
+        - dynamodb:GetShardIterator
+        - dynamodb:ListStreams
+        - logs:*
+      Resource: '*'
+
+functions:
+  streamProcessor:
+    handler: streamHandler.handler
+    events:
+      - stream:
+          type: dynamodb 
+          arn: ${self:provider.environment.STREAM_ARN}
+          startingPosition: LATEST
+          batchSize: 1
