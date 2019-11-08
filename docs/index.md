@@ -12,5 +12,4 @@ title: Outline
 ## [DynamoDB Backups](p7-backups.md)
 ## [DynamoDB Single Table Design](p8-single-table-design.md)
 ## [DynamoDB Streams](p9-dynamodb-streams.md)
-## [DynamoDB Write Conditions](p9-dynamodb-streams.md)
 ## [Recommended Resources](p10-resources.md)
